@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Calibri, sans-serif;
+        }
+        
+        .view {
+            display: none;
+        }
+        
+        .view.active {
+            display: block;
+        }
+        
+        #startView {
+            text-align: center;
+        }
+        
+        #quizView {
+            text-align: center;
+        }
+        
+        #scoreView {
+            text-align: center;
+        }
+        
+        .choice {
+            border: 2px solid rgb(187, 128, 255);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
+            width: 200px;
+        }
+        
+        .choice:hover {
+            background: rgb(187, 128, 255);
+            color: white;
+        }
+        
+        button {
+            background: rgb(187, 128, 255);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 18px;
+        }
+        
+        #progressBar {
+            height: 10px;
+            background: rgb(187, 128, 255);
+            width: 0%;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        
+        #score {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+        
+        #emoji {
+            font-size: 60px;
+            margin: 10px;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Start View -->
+    <div id="startView" class="view active">
+        <h1>Quiz App</h1>
+        <button id="startButton">Start Quiz!</button>
+    </div>
+
+    <!-- Quiz View -->
+    <div id="quizView" class="view">
+        <div id="question">Question will appear here</div>
+        <div id="choices">
+            <div class="choice" id="choiceA">A</div>
+            <div class="choice" id="choiceB">B</div>
+            <div class="choice" id="choiceC">C</div>
+            <div class="choice" id="choiceD">D</div>
+        </div>
+        <div id="progressBar"></div>
+    </div>
+
+    <!-- Score View -->
+    <div id="scoreView" class="view">
+        <h2>Quiz Completed!</h2>
+        <div id="score">Score: 0/0</div>
+        <div id="emoji">😊</div>
+        <button id="restartButton">Restart Quiz</button>
+    </div>
+
+    <script src="play.js"></script>
+</body>
+</html>

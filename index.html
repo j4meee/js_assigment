@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Navigation styles */
+        #navbar {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        #navbar ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #navbar li {
+            flex: 1;
+            text-align: center;
+            padding: 15px 30px;
+            cursor: pointer;
+        }
+        
+        #navbar li.active {
+            background: rgb(187, 128, 255);
+            color: white;
+        }
+        
+        /* Iframe styling */
+        #contentFrame {
+            width: 90%;
+            max-width: 800px;
+            height: 70vh;
+            border: none;
+            border-radius: 20px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
+        <!-- Navigation Menu -->
+        <nav id="navbar">
+            <ul>
+                <li id="navPlayer" class="active" onclick="loadView('play')">Player</li>
+                <li id="navEditor" onclick="loadView('edit')">Editor</li>
+            </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <iframe id="contentFrame" src="views/play/play.html"></iframe>
+    </div>
+
+    <script>
+        // Function to switch between views
+        function loadView(viewName) {
+            const frame = document.getElementById('contentFrame');
+            const navPlayer = document.getElementById('navPlayer');
+            const navEditor = document.getElementById('navEditor');
+            
+            // Update navigation active state
+            navPlayer.classList.remove('active');
+            navEditor.classList.remove('active');
+            
+            if (viewName === 'play') {
+                frame.src = 'views/play/play.html';
+                navPlayer.classList.add('active');
+            } else if (viewName === 'edit') {
+                frame.src = 'views/edit/edit.html';
+                navEditor.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
